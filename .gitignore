@@ -1,0 +1,9 @@
+checkpoints*
+*.csv
+*.zip
+*_dataset
+__pycache__
+.ipynb_checkpoints
+media
+models--ai-forever--ruBert-base
+lightning_logs
