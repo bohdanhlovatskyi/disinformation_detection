@@ -24,10 +24,10 @@ def create_classification_dataset(path: str, tokenizer, max_len=512, test_size=0
         texts, labels, test_size=test_size, random_state=random_state
     )
 
-    train_encodings = tokenizer(list(train_texts), truncation=True, padding=True, max_length=max_len)
-    val_encodings = tokenizer(list(val_texts), truncation=True, padding=True, max_length=max_len)
+    train_tokens = tokenizer(list(train_texts), truncation=True, padding=True, max_length=max_len)
+    val_tokens = tokenizer(list(val_texts), truncation=True, padding=True, max_length=max_len)
 
-    train_dataset = CustomDataset(train_encodings, torch.tensor(train_labels.values, dtype=torch.long) - 1)
-    val_dataset = CustomDataset(val_encodings, torch.tensor(val_labels.values, dtype=torch.long) - 1)
+    train_dataset = CustomDataset(train_tokens, torch.tensor(train_labels.values, dtype=torch.long) - 1)
+    val_dataset = CustomDataset(val_tokens, torch.tensor(val_labels.values, dtype=torch.long) - 1)
 
     return train_dataset, val_dataset

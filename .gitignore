@@ -7,3 +7,6 @@ __pycache__
 media
 models--ai-forever--ruBert-base
 lightning_logs
+*.pkl
+*.sqlite
+.locks

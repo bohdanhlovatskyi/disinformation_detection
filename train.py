@@ -119,13 +119,12 @@ class DisinformationBERT(pl.LightningModule):
 
 if __name__ == "__main__":
     pl.seed_everything(42)
-
     model = DisinformationBERT()
 
     train, val = create_classification_dataset("train.csv", model.tokenizer)
 
-    train_loader = DataLoader(train, batch_size=32, shuffle=True, num_workers=6)
-    val_loader = DataLoader(val, batch_size=4, drop_last=True, shuffle=False, num_workers=6)
+    train_loader = DataLoader(train, batch_size=64, shuffle=True, num_workers=2)
+    val_loader = DataLoader(val, batch_size=4, drop_last=True, shuffle=False, num_workers=2)
 
     logger = pl.loggers.TensorBoardLogger(
         save_dir=os.getcwd(),
